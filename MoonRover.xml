@@ -131,6 +131,47 @@
 
 	      </block>
 
+	//单电机控制
+	      <block type="motorCtr_MoonRover">
+
+	      	<value name="add">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+	      	<value name="dir">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+		  	<value name="mrSpeedSingle">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
+	//单舵机控制
+	      <block type="servoCtr_MoonRover">
+
+	      	<value name="add">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+
+		  	<value name="mrAngle">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
 //
 	</category>
 

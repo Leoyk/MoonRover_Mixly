@@ -5,6 +5,7 @@ goog.require('Blockly.Blocks');
 var col_redAlard  = '#EC505D';  
 var col_teleGet  = '#344C6C';  
 var col_teleCtr  = '#567db0';  
+var col_teleCtrSingle  = '#50706c';  
 
 
 ////////////////////////////////////////////////////////////////////系统设置
@@ -55,6 +56,62 @@ var col_teleCtr  = '#567db0';
 
 
 ////////////////////////////////////////////////////////////////////运动控制
+
+//单舵机控制
+Blockly.Blocks.servoCtr_MoonRover = {
+  init: function() {
+
+  var ADDR =
+        [[Blockly.leftFront, '1'],
+        [Blockly.rightFront, '2'],
+        [Blockly.leftBack, '3'],
+        [Blockly.rightBack, '4']];
+
+    this.setColour(col_teleCtrSingle);
+    this.appendValueInput("mrAngle", Number)
+        .appendField(Blockly.servoCtr)
+        .appendField(Blockly.servoCtrSingle)
+        .appendField(new Blockly.FieldDropdown(ADDR), 'ADDR') 
+
+        .appendField(Blockly.servoCtrAngle)
+        .setCheck(Number);     
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+  }
+};
+
+//单电机控制
+Blockly.Blocks.motorCtr_MoonRover = {
+  init: function() {
+  var UNIT =
+        [[Blockly.moveFoward, '1'],
+        [Blockly.moveBackeward, '2']];
+  var ADDR =
+        [[Blockly.leftFront, '1'],
+        [Blockly.rightFront, '2'],
+        [Blockly.liftMidle, '3'],
+        [Blockly.rightMidle, '4'],
+        [Blockly.leftBack, '5'],
+        [Blockly.rightBack, '6']];
+
+    this.setColour(col_teleCtrSingle);
+    this.appendValueInput("mrSpeedSingle", Number)
+        .appendField(Blockly.motorCtr)
+        .appendField(Blockly.motorCtrSingle)
+        .appendField(new Blockly.FieldDropdown(ADDR), 'ADDR') 
+
+        .appendField(Blockly.moonRoverDir)
+        .appendField(new Blockly.FieldDropdown(UNIT), 'UNIT')
+        .appendField(Blockly.moveSpeed)
+        .setCheck(Number);     
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+  }
+};
 
 //直线运动
 Blockly.Blocks.moveDir_MoonRover = {

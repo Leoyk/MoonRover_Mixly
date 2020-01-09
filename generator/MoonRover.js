@@ -36,6 +36,29 @@ goog.require('Blockly.JavaScript');
 		return code;
 	}
 
+ <!--单电机控制-->
+
+	Blockly.Arduino.motorCtr_MoonRover = function () {
+    
+	    var Speed = Blockly.Arduino.valueToCode(this, 'mrSpeedSingle', Blockly.Arduino.ORDER_ATOMIC) || '0'
+	    var chooseMoveDirction = this.getFieldValue('UNIT');
+	    var chooseMoveAddress = this.getFieldValue('ADDR');
+	    var code = '__MoonRoversingleMotor('+ chooseMoveAddress + ',' + chooseMoveDirction + ',' + Speed + ');\n\n'
+
+    	return code;
+};
+
+ <!--单舵机控制-->
+
+	Blockly.Arduino.servoCtr_MoonRover = function () {
+    
+	    var angle = Blockly.Arduino.valueToCode(this, 'mrAngle', Blockly.Arduino.ORDER_ATOMIC) || '0'
+	    var chooseMoveAddress = this.getFieldValue('ADDR');
+	    var code = '__MoonRoversingleServo('+ chooseMoveAddress + ','  + angle + ');\n\n'
+
+    	return code;
+};
+
  <!--直线运动-->
 
 	Blockly.Arduino.moveDir_MoonRover = function () {
