@@ -180,11 +180,12 @@ void orderData(void){
 int getData(void){
 
   long ck;
- 
+  static int i = 0;
+
   if((comm3buff[0] == 0xFB) && (comm3buff[1] == 0xFF)){
     
     ck = 0; 
-    for(int i = 1;i < 22;i ++){
+    for(i = 1;i < 22;i ++){
       ck += comm3buff[i];
     }
 
@@ -197,7 +198,6 @@ int getData(void){
       _yaw = ((comm3buff[9] << 8) + comm3buff[8]) / 10.0;
       _pit = ((comm3buff[11] << 8) + comm3buff[10]) / 10.0;
       _rol = ((comm3buff[13] << 8) + comm3buff[12]) / 10.0;
-	  
 	  
 	  
       angLF = (comm3buff[15] << 8) + comm3buff[14];
