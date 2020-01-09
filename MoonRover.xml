@@ -1,0 +1,174 @@
+<!-- type="company" 
+     block="block/MoonRover.js"
+	 generator="generator/MoonRover.js" 
+	 lib="MoonRoverArduino" 
+	 hardware="hardware/MoonRover"
+	 media="media/MoonRover" 
+	 language="language/MoonRover"
+	 pin="companypin/MoonRover" -->
+
+
+<script type="text/javascript" src="../../blocks/company/MoonRover.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/MoonRover.js"></script>
+
+
+<category id="MoonRover" name="月面巡视探测器" colour= 20>
+
+
+
+//系统设置	  
+	<category id="MoonRover" name="系统设置" colour= 20>
+
+	//开始创建自动运行任务
+	      <block type="create_MoonRover">
+	      </block>	
+
+	//完成自动运行任务创建
+	      <block type="createComplete_MoonRover">
+	      </block>
+
+	//暂停时间
+
+	      <block type="delay_MoonRover">
+
+	      	<value name="mrDelayTime">   
+				<shadow type="math_number">
+					<field name="NUM">1000</field>
+				</shadow>
+		  	</value>
+
+	      </block>
+
+//
+	</category>
+
+
+//运动控制
+	<category id="MoonRover" name="运动控制" colour= 20>
+
+	//停止运动
+
+	      <block type="stop_MoonRover">
+	      </block>
+
+	//直线运动
+	      <block type="moveDir_MoonRover">
+
+	      	<value name="mrDiction">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+		  	<value name="mrSpeed">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
+	//原地转向
+	      <block type="turnStill_MoonRover">
+
+	      	<value name="mrDiction">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+		  	<value name="mrTurnSpeed">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
+	//差速转向
+	      <block type="turnMove_MoonRover">
+
+	      	<value name="mrDiction">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+		  	<value name="mrTurnSpeedL">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+		  	<value name="mrTurnSpeedR">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
+	//导轮转向
+	      <block type="turnLead_MoonRover">
+
+	      	<value name="mrLeadDir">   
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+		  	</value>
+
+		  	<value name="mrLeadAngle">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+		  	<value name="mrLeadSpeed">   
+			  <shadow type="math_number">
+				  <field name="NUM">0</field>
+			  </shadow>
+			</value>
+
+	      </block>
+
+//
+	</category>
+
+//遥测任务
+	<category id="MoonRover" name="遥测任务" colour= 20>
+	
+	//拍照		
+	      <block type="takePhoto_MoonRover">
+	      </block>//
+
+	//激光测距数值		
+	      <block type="distance_MoonRover">
+	      </block>//
+
+	//核心温度值		
+	      <block type="temperature_MoonRover">
+	      </block>//
+
+	//电池电压		
+	      <block type="batVolt_MoonRover">
+	      </block>//
+
+	//太阳能板电压		
+	      <block type="solarVolt_MoonRover">
+	      </block>//
+
+	//真实速度		
+	      <block type="realSpeed_MoonRover">
+	      </block>//
+
+	//车体姿态		
+		<block type="motion_MoonRover">
+		</block>
+
+	</category>
+</category>
+
+
+
+
+
