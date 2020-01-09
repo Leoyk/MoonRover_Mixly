@@ -20,7 +20,8 @@ void __MoonRoverRun(int dir,int spd);
 void __MoonRoverTurn(int dir,int spd);
 void __MoonRoverDricTurn(int dir,int Lspd,int Rspd);
 void __MoonRoverLeadTurn(int dir,int ang,int spd);
-
+void __MoonRoversingleMotor(int add,int dir,int spd);
+void __MoonRoversingleServo(int add,int angle);
 //遥控指令
 void __MoonRoverTakePhoto(void);
 

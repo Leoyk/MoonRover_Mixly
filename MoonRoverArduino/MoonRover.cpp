@@ -17,9 +17,63 @@ unsigned long __timeFlag;
 unsigned long __timeFlagTele;
 int __motorFlag = 0;
 int __changeModeFlag = 0;
+//4个电机的角度，角度 
+extern int wheelAngel_1, wheelAngel_2, wheelAngel_3, wheelAngel_4; 
+
+//6个电机速度，
+extern int wheelSpeed_1, wheelSpeed_2, wheelSpeed_3, wheelSpeed_4, wheelSpeed_5, wheelSpeed_6;
+
+/*
+函数功能：控制单个电机方向和速度
+参数：无
+返回值：无
+影响值：无
+
+作者：刘要坤
+时间：2020年1月9日16:59:51
+
+修改记录：
+
+*/
+void __MoonRoversingleMotor(int add,int dir,int spd){
+
+	switch(add){
+		case 1: if(dir == 1)wheelSpeed_1 = spd;else if(dir ==2)wheelSpeed_1 = -spd;break;
+		case 2: if(dir == 1)wheelSpeed_2 = spd;else if(dir ==2)wheelSpeed_2 = -spd;break;
+		case 3: if(dir == 1)wheelSpeed_3 = spd;else if(dir ==2)wheelSpeed_3 = -spd;break;
+		case 4: if(dir == 1)wheelSpeed_4 = spd;else if(dir ==2)wheelSpeed_4 = -spd;break;
+		case 5: if(dir == 1)wheelSpeed_5 = spd;else if(dir ==2)wheelSpeed_5 = -spd;break;
+		case 6: if(dir == 1)wheelSpeed_6 = spd;else if(dir ==2)wheelSpeed_6 = -spd;break;
+		default:break;
+	}
+
+	cmdMotor();
+}
 
 
+/*
+函数功能：控制单个舵机角度
+参数：无
+返回值：无
+影响值：无
 
+作者：刘要坤
+时间：2020年1月9日17:26:46
+
+修改记录：
+
+*/
+void __MoonRoversingleServo(int add,int angle){
+	switch(add){
+		case 1: wheelAngel_1 = angle;break;
+		case 2: wheelAngel_2 = angle;break;
+		case 3: wheelAngel_3 = angle;break;
+		case 4: wheelAngel_4 = angle;break;
+		default:break;
+	}
+
+	cmdMotor();
+}
 
 
 
