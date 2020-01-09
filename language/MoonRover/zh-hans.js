@@ -20,7 +20,7 @@ Blockly.turnSpeedR			= 	'右侧速度：';
 Blockly.turnLead			= 	'导轮转向';
 Blockly.turnFoward 			= 	'前舵';
 Blockly.turnBackeward	 	= 	'后舵';
-Blockly.turnAngle		 	= 	'角度：';
+Blockly.turnAngle		 	= 	'角度:';
 
 Blockly.takePhoto	 		= 	'    拍照   ';
 Blockly.laserDistance		= 	'激光测距数值(cm)';
@@ -30,11 +30,18 @@ Blockly.solarpanalVolt 		= 	'太阳能电池板电压(V)';
 Blockly.realSpeed 			= 	'车体真实运行速度(m/s)';
 
 
-Blockly.servoAngle 			= 	'舵机角度:';
+Blockly.servoCtr 			= 	'单舵机控制';
+Blockly.motorCtr 			= 	'单电机控制';
+Blockly.servoCtrAngle		= 	'角度:';
+Blockly.servoCtrSingle		= 	'舵机:';
+Blockly.motorCtrSingle		= 	'电机:';
 Blockly.leftFront 			= 	'左前';
 Blockly.rightFront 			= 	'右前';
 Blockly.leftBack 			= 	'左后';
 Blockly.rightBack 			= 	'右后';
+Blockly.liftMidle 			= 	'左中';
+Blockly.rightMidle 			= 	'右中';
+
 Blockly.motion	 			= 	'车体姿态:';
 Blockly.yaw 				= 	'偏航';
 Blockly.pitch	 			= 	'俯仰';
