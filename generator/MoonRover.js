@@ -21,7 +21,7 @@ goog.require('Blockly.JavaScript');
  <!--结束任务创建-->
 	Blockly.Arduino.createComplete_MoonRover = function(){
 
-		var code =  'while(1){__MoonRoverGetConmmunication();\n__MoonRoverGetTelecomm();\n}\n}\n '
+		var code =  '__MoonRoverRun(0,0);\nwhile(__autoFlag){__MoonRoverGetConmmunication();\n__MoonRoverGetTelecomm();\n}\n}\n '
 
 		return code;
 	}
