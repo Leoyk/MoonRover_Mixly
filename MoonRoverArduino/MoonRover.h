@@ -26,14 +26,14 @@ void __MoonRoversingleServo(int add,int angle);
 void __MoonRoverTakePhoto(void);
 
 //遥测指令
-int __MoonRoverGetAngle(int add);
-float __MoonRoverGetMotion(int motion);
-float __MoonRoverGetTemp(void);
-float __MoonRoverGetSpd(void);
-float __MoonRoverGetSolarVolt(void);
-float __MoonRoverGetBattaryVolt(void);
+static int __MoonRoverGetAngle(int add);
+static float __MoonRoverGetMotion(int motion);
+static float __MoonRoverGetTemp(void);
+static float __MoonRoverGetSpd(void);
+static float __MoonRoverGetSolarVolt(void);
+static float __MoonRoverGetBattaryVolt(void);
 
-float __MoonRoverGetDistance(void);
+static float __MoonRoverGetDistance(void);
 
 
 void __MoonRoverGetData(void);
