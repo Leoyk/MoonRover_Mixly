@@ -6,6 +6,7 @@
 
 extern volatile  int __camFlag;//拍照忙标志
 extern volatile int __autoFlag;
+extern volatile int __actFlag;
 extern unsigned long __timeFlag;
 extern unsigned long __timeFlagTele;
 extern int __motorFlag;

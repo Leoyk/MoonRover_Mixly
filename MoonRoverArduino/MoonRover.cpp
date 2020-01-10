@@ -13,6 +13,7 @@ static struct pt
 
 volatile  int __camFlag = 0;//拍照忙标志
 volatile int __autoFlag = 0;
+volatile int __actFlag = 0;
 unsigned long __timeFlag;
 unsigned long __timeFlagTele;
 int __motorFlag = 0;
