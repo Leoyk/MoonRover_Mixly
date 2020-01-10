@@ -138,7 +138,7 @@ static int thread1_entry(struct pt *pt){//手动控制任务
 	  __MoonRoverGetTelecomm();
 
     }
-  PT_TIMER_DELAY(pt,100); __MoonRoverGetConmmunication(); 
+  PT_TIMER_DELAY(pt,10); __MoonRoverGetConmmunication(); 
   }
   PT_END(pt);
 }
@@ -162,7 +162,7 @@ static int thread2_entry(struct pt *pt){
   PT_BEGIN(pt);
   
   while (1){
-   PT_TIMER_DELAY(pt,10);   __MoonRoverGetConmmunication();
+   PT_TIMER_DELAY(pt,1000);   //__MoonRoverGetConmmunication();
   }
 
   PT_END(pt);
@@ -187,14 +187,12 @@ static int thread2_entry(struct pt *pt){
 void __MoonRoverCreateTask(void){
 	thread1_entry(&thread1);
 	thread2_entry(&thread2); 
-
-	if(__autoFlag == 1)     
-	if(__changeModeFlag == 0){//手动切自动
-	    __changeModeFlag = 1;
-	    __MoonRoverRun(0,0);
-	  }
 }
 
+void __MoonRoverCk(void){
+	thread1_entry(&thread1);
+	thread2_entry(&thread2); 
+}
 
 
 
@@ -216,7 +214,7 @@ void __MoonRoverGetTelecomm(void){
   if(__camFlag != 1){
       __MoonRoverGetData();
     
-      if(millis() - __timeFlagTele > 150){//发送遥测数据时间间隔     
+      if(millis() - __timeFlagTele > 12){//发送遥测数据时间间隔     
         __timeFlagTele = millis();        
 
         if(__motorFlag){//输出电机位置信息

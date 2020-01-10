@@ -45,4 +45,5 @@ void __MoonRoverReturnMotorData(void);
 
 
 void __MoonRoverCreateTask(void);
+void __MoonRoverCk(void);
 #endif
