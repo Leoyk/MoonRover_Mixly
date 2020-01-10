@@ -23,11 +23,6 @@ extern int wheelAngel_1, wheelAngel_2, wheelAngel_3, wheelAngel_4;
 //6个电机速度，
 extern int wheelSpeed_1, wheelSpeed_2, wheelSpeed_3, wheelSpeed_4, wheelSpeed_5, wheelSpeed_6;
 
-
-
-extern float _yaw,_pit,_rol;
-
-
 /*
 函数功能：控制单个电机方向和速度
 参数：无
@@ -535,13 +530,15 @@ int __MoonRoverGetAngle(int add){
 float __MoonRoverGetMotion(int motion){
 
 	switch(motion){
-		case 1: return _yaw; break;
-		case 2: return _pit; break;
-		case 3: return _rol; break;
+		case 0: return getMotion('y'); break;
+		case 1: return getMotion('p'); break;
+		case 2: return getMotion('r'); break;
 
 		default: return 0; break;
 	}
 }
+
+
 
 
 
