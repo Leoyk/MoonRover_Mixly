@@ -11,6 +11,7 @@ int comm2buff[200];
 
 int autoBuf[5] = {0xFB,0x01,0x00,0x01,0xBF};
 int menuBuf[5] = {0xFB,0x01,0x01,0x02,0xBF};
+int actBuf[5] = {0xFB,0x01,0x01,0x02,0xBF};
 
 int takePicOkFlag = 0;
 extern volatile int __camFlag;
@@ -109,6 +110,11 @@ void getTeleComm2(void){
                __autoFlag = 0;     
                for(int ib = 0;ib < 5;ib ++){
                 Serial2.write(menuBuf[ib]);
+               }
+              }
+              else if(comm2buff[2] == 2){   
+               for(int ib = 0;ib < 5;ib ++){
+                Serial2.write(actBuf[ib]);
                }
               }
             }
