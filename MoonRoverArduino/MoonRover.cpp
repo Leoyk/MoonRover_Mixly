@@ -13,10 +13,10 @@ static struct pt
 
 volatile  int __camFlag = 0;//拍照忙标志
 volatile int __autoFlag = 0;
-static unsigned long __timeFlag;
-static unsigned long __timeFlagTele;
-static int __motorFlag = 0;
-static int __changeModeFlag = 0;
+unsigned long __timeFlag;
+unsigned long __timeFlagTele;
+int __motorFlag = 0;
+int __changeModeFlag = 0;
 //4个电机的角度，角度 
 extern int wheelAngel_1, wheelAngel_2, wheelAngel_3, wheelAngel_4; 
 
@@ -42,20 +42,15 @@ extern float _yaw,_pit,_rol;
 */
 void __MoonRoversingleMotor(int add,int dir,int spd){
 
-
-		if(add == 1){
-			if(dir == 1)wheelSpeed_1 = spd;else if(dir ==2)wheelSpeed_1 = -spd;
-		}else if(add == 2){
-			if(dir == 1)wheelSpeed_2 = spd;else if(dir ==2)wheelSpeed_2 = -spd;
-		}else if(add == 3){
-			if(dir == 1)wheelSpeed_3 = spd;else if(dir ==2)wheelSpeed_3 = -spd;
-		}else if(add == 4){
-			if(dir == 1)wheelSpeed_4 = spd;else if(dir ==2)wheelSpeed_4 = -spd;
-		}else if(add == 5){
-			if(dir == 1)wheelSpeed_5 = spd;else if(dir ==2)wheelSpeed_5 = -spd;
-		}else if(add == 6){
-			if(dir == 1)wheelSpeed_6 = spd;else if(dir ==2)wheelSpeed_6 = -spd;
-		}
+	switch(add){
+		case 1: if(dir == 1)wheelSpeed_1 = spd;else if(dir ==2)wheelSpeed_1 = -spd;break;
+		case 2: if(dir == 1)wheelSpeed_2 = spd;else if(dir ==2)wheelSpeed_2 = -spd;break;
+		case 3: if(dir == 1)wheelSpeed_3 = spd;else if(dir ==2)wheelSpeed_3 = -spd;break;
+		case 4: if(dir == 1)wheelSpeed_4 = spd;else if(dir ==2)wheelSpeed_4 = -spd;break;
+		case 5: if(dir == 1)wheelSpeed_5 = spd;else if(dir ==2)wheelSpeed_5 = -spd;break;
+		case 6: if(dir == 1)wheelSpeed_6 = spd;else if(dir ==2)wheelSpeed_6 = -spd;break;
+		default:break;
+	}
 
 	cmdMotor();
 }
@@ -74,16 +69,13 @@ void __MoonRoversingleMotor(int add,int dir,int spd){
 
 */
 void __MoonRoversingleServo(int add,int angle){
-
-	if(add == 1){
-		wheelAngel_1 = angle;
-	} else if(add == 2){
-		wheelAngel_2 = angle;
-	} else if(add == 3){
-		wheelAngel_3 = angle;
-	} else if(add == 4){
-		wheelAngel_4 = angle;
-	} 
+	switch(add){
+		case 1: wheelAngel_1 = angle;break;
+		case 2: wheelAngel_2 = angle;break;
+		case 3: wheelAngel_3 = angle;break;
+		case 4: wheelAngel_4 = angle;break;
+		default:break;
+	}
 
 	cmdMotor();
 }
@@ -228,7 +220,7 @@ void __MoonRoverGetTelecomm(void){
   if(__camFlag != 1){
       __MoonRoverGetData();
     
-      if(millis() - __timeFlagTele > 50){//发送遥测数据时间间隔     
+      if(millis() - __timeFlagTele > 150){//发送遥测数据时间间隔     
         __timeFlagTele = millis();        
 
         if(__motorFlag){//输出电机位置信息
@@ -367,7 +359,7 @@ void __MoonRoverRun(int dir,int spd){
 */
 void __MoonRoverTurn(int dir,int spd){
 //原地转向的角度默认设置为45度
-	static int ang = 45;
+	int ang = 45;
 
 
 //如果方向为2 则逆时针
@@ -514,16 +506,15 @@ void __MoonRoverTakePhoto(void){
 修改记录：
 
 */
-static int __MoonRoverGetAngle(int add){
+int __MoonRoverGetAngle(int add){
 
-	if(add = 0){
-		return getLfAngle();
-	} else if(add = 1){
-		return getRfAngle();
-	} else if(add = 2){
-		return getLbAngle();
-	} else if(add = 3){
-		return getRbAngle();
+	switch(add){
+		case 0: return getLfAngle(); break;
+		case 1: return getRfAngle(); break;
+		case 2: return getLbAngle(); break;
+		case 3: return getRbAngle(); break;
+
+		default: return 0; break;
 	}
 }
 	
@@ -541,13 +532,14 @@ static int __MoonRoverGetAngle(int add){
 修改记录：
 
 */
-static float __MoonRoverGetMotion(int motion){
-	if(motion == 1){
-		return _yaw;
-	}else if(motion == 2){
-		return _pit;
-	}else if(motion == 3){
-		return _rol;
+float __MoonRoverGetMotion(int motion){
+
+	switch(motion){
+		case 1: return _yaw; break;
+		case 2: return _pit; break;
+		case 3: return _rol; break;
+
+		default: return 0; break;
 	}
 }
 
@@ -565,7 +557,7 @@ static float __MoonRoverGetMotion(int motion){
 修改记录：
 
 */
-static float __MoonRoverGetTemp(void){
+float __MoonRoverGetTemp(void){
 	return getTemp();
 }
 
@@ -584,7 +576,7 @@ static float __MoonRoverGetTemp(void){
 修改记录：
 
 */
-static float __MoonRoverGetSpd(void){
+float __MoonRoverGetSpd(void){
 	return getSpeed();
 }
 
@@ -603,7 +595,7 @@ static float __MoonRoverGetSpd(void){
 修改记录：
 
 */
-static float __MoonRoverGetSolarVolt(void){
+float __MoonRoverGetSolarVolt(void){
 	return solarVolt();
 }
 
@@ -622,7 +614,7 @@ static float __MoonRoverGetSolarVolt(void){
 修改记录：
 
 */
-static float __MoonRoverGetBattaryVolt(void){
+float __MoonRoverGetBattaryVolt(void){
 	return batVolt();
 }
 
@@ -642,7 +634,7 @@ static float __MoonRoverGetBattaryVolt(void){
 修改记录：
 
 */
-static float __MoonRoverGetDistance(void){
+float __MoonRoverGetDistance(void){
 	return getDistant();
 }
 
