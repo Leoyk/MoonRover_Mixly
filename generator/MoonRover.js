@@ -14,7 +14,7 @@ goog.require('Blockly.JavaScript');
 
 		Blockly.Arduino.definitions_['月球车库'] = '#include"MoonRover.h"';
 		Blockly.Arduino.setups_['初始化月球车接口'] = '__MoonRoverInit();\n\n';
-		var code =  '__MoonRoverCreateTask();\n\nif(__autoFlag == 1){\nif(__actFlag == 1){__actFlag = 0;'
+		var code =  '__MoonRoverCreateTask();\nif(__autoFlag == 1){\nif(__actFlag == 1){\n__actFlag = 0;\n'
 
 		return code;
 	}
