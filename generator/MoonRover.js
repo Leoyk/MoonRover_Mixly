@@ -129,6 +129,15 @@ goog.require('Blockly.JavaScript');
 	}
 
 
+ <!--自动运行标志-->
+
+	Blockly.Arduino.auto_MoonRover = function(){
+
+		var code =  '(__autoFlag)'
+
+		return [code, Blockly.Arduino.ORDER_ATOMIC];
+	}
+
  <!--激光测距数值-->
 
 	Blockly.Arduino.distance_MoonRover = function(){
