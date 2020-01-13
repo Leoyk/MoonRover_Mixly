@@ -177,13 +177,13 @@
 
 //遥测任务
 	<category id="MoonRover" name="遥测任务" colour= 20>
-	
-	//拍照		
-	      <block type="takePhoto_MoonRover">
-	      </block>//
 
 	//自动运行标志		
 	      <block type="auto_MoonRover">
+	      </block>//
+
+	//拍照		
+	      <block type="takePhoto_MoonRover">
 	      </block>//
 
 	//激光测距数值		

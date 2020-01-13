@@ -163,7 +163,7 @@ void cmdMotor(void){
  * 返回值：无
  * 备注：测试中使用串口0
 */
-static void printMotorDataHex(void){
+void printMotorDataHex(void){
   Serial2.write(0xFB);
   //帧类型
     Serial2.write(MOTOR_TYPE);    

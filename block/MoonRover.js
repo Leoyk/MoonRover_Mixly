@@ -209,18 +209,6 @@ Blockly.Blocks.turnStill_MoonRover = {
     this.setInputsInline(true);
   }
 };
-//////////////////////////////////////////////////////////////////////////////
-
-//是否处于自动运行模式
-  Blockly.Blocks.auto_MoonRover = {
-    init: function() {
-      this.setColour(col_teleGet);
-      this.appendDummyInput("")
-            .appendField(Blockly.moonRoverAuto)
-
-      this.setOutput(true, Number);
-    }
-  }; 
 
 //拍照任务
   Blockly.Blocks.takePhoto_MoonRover = {
@@ -234,7 +222,19 @@ Blockly.Blocks.turnStill_MoonRover = {
       this.setInputsInline(true);
     }
   };
+//////////////////////////////////////////////////////////////////////////////
 
+//是否处于自动运行模式
+  Blockly.Blocks.auto_MoonRover = {
+    init: function() {
+      this.setColour(col_teleGet);
+      this.appendDummyInput("")
+            .appendField(Blockly.moonRoverAuto)
+
+      this.setOutput(true, Number);
+    }
+  }; 
+  
 //激光测距数值
   Blockly.Blocks.distance_MoonRover = {
     init: function() {

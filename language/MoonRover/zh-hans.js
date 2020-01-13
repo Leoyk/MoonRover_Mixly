@@ -1,7 +1,6 @@
 Blockly.moonRoverInit 		=	'初始化月面巡视探测器';
-Blockly.moonRoverAuto 		=	'处于自动运行模式';
-
 Blockly.moonRoverCreate		=	'开始创建自动运行任务';
+Blockly.moonRoverAuto 		=	'处于自动运行模式';
 Blockly.moonRoverCreateCp	=	'完成自动运行任务创建';
 Blockly.moonRoverDelay		=	'持续时间：';
 Blockly.moonRoverDelayMs	=	'ms';
