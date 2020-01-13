@@ -190,7 +190,7 @@ int getData(void){
 
     ck &= 0xff;
     if(ck == comm3buff[22]){
-      spdVal = ((comm3buff[3] << 8) + comm3buff[2]) * 0.0175924;
+      spdVal = (((comm3buff[3] << 8) + comm3buff[2]) * 0.0175924)/10.0;
       tempVal = (float)(((comm3buff[5] << 8) + comm3buff[4]) * 10)/10.0;
       disVal = ((comm3buff[7] << 8) + comm3buff[6]) / 10.0;
 	  
