@@ -194,9 +194,9 @@ int getData(void){
       tempVal = (float)(((comm3buff[5] << 8) + comm3buff[4]) * 10)/10.0;
       disVal = ((comm3buff[7] << 8) + comm3buff[6]) / 10.0;
 	  
-      _yaw = ((comm3buff[9] << 8) + comm3buff[8]) / 10.0;
-      _pit = ((comm3buff[11] << 8) + comm3buff[10]) / 10.0;
-      _rol = ((comm3buff[13] << 8) + comm3buff[12]) / 10.0;
+      // _yaw = ((comm3buff[9] << 8) + comm3buff[8]) / 10.0;
+      // _pit = ((comm3buff[11] << 8) + comm3buff[10]) / 10.0;
+      // _rol = ((comm3buff[13] << 8) + comm3buff[12]) / 10.0;
 	  
 	  
 	  
@@ -242,8 +242,33 @@ int getData(void){
         Serial.print("\t");
       }
       Serial.print("\n");
-      }
-    
+      } 
+  }
+
+  else if((comm3buff[0] == 0xFB) && (comm3buff[1] == 0x10)){
+    ck = 0; 
+    for(int i = 1;i < 8;i ++){
+      ck += comm3buff[i];
+    }
+
+    ck &= 0xff;
+    if(ck == comm3buff[8]){
+
+      _pit = ((comm3buff[3] << 8) + comm3buff[2])/10.0;
+      _rol = ((comm3buff[5] << 8) + comm3buff[4])/10.0;
+      _yaw = ((comm3buff[7] << 8) + comm3buff[6])/10.0;
+
+
+      if(_pit > 360)_pit -= 360;
+      else if(_pit < -360)_pit += 360;
+
+      if(_rol > 360)_rol -= 360;
+      else if(_rol < -360)_rol += 360;
+
+      if(_yaw > 360)_yaw -= 360;
+      else if(_yaw < 0)_yaw += 360;
+    }
+
   }
     return 0; 
 }

@@ -23,6 +23,8 @@ extern int wheelAngel_1, wheelAngel_2, wheelAngel_3, wheelAngel_4;
 //6个电机速度，
 extern int wheelSpeed_1, wheelSpeed_2, wheelSpeed_3, wheelSpeed_4, wheelSpeed_5, wheelSpeed_6;
 
+
+extern float _yaw,_pit,_rol;
 /*
 函数功能：控制单个电机方向和速度
 参数：无
@@ -137,7 +139,7 @@ static int thread1_entry(struct pt *pt){//手动控制任务
 	  __MoonRoverGetTelecomm();
 
     }
-  PT_TIMER_DELAY(pt,100); __MoonRoverGetConmmunication(); 
+  PT_TIMER_DELAY(pt,20); __MoonRoverGetConmmunication(); 
   }
   PT_END(pt);
 }
@@ -215,7 +217,7 @@ void __MoonRoverGetTelecomm(void){
   if(__camFlag != 1){
       __MoonRoverGetData();
     
-      if(millis() - __timeFlagTele > 150){//发送遥测数据时间间隔     
+      if(millis() - __timeFlagTele > 50){//发送遥测数据时间间隔     
         __timeFlagTele = millis();        
 
         if(__motorFlag){//输出电机位置信息
@@ -503,14 +505,11 @@ void __MoonRoverTakePhoto(void){
 */
 int __MoonRoverGetAngle(int add){
 
-	switch(add){
-		case 0: return getLfAngle(); break;
-		case 1: return getRfAngle(); break;
-		case 2: return getLbAngle(); break;
-		case 3: return getRbAngle(); break;
-
-		default: return 0; break;
-	}
+	if(add == 0) return getLfAngle(); 
+	else if(add == 1) return getRfAngle();
+	else if(add == 2) return getLbAngle();
+	else if(add == 3) return getRbAngle();
+	else return 0; 
 }
 	
 
@@ -529,13 +528,12 @@ int __MoonRoverGetAngle(int add){
 */
 float __MoonRoverGetMotion(int motion){
 
-	switch(motion){
-		case 0: return getMotion('y'); break;
-		case 1: return getMotion('p'); break;
-		case 2: return getMotion('r'); break;
+	if(motion == 0) return _yaw; 
+	else if(motion == 1) return _pit; 
+	else if(motion == 2) return _rol; 
 
-		default: return 0; break;
-	}
+	else return 0; 
+
 }
 
 

@@ -234,7 +234,7 @@ Blockly.Blocks.turnStill_MoonRover = {
       this.setOutput(true, Number);
     }
   }; 
-  
+
 //激光测距数值
   Blockly.Blocks.distance_MoonRover = {
     init: function() {
@@ -307,9 +307,9 @@ Blockly.Blocks.turnStill_MoonRover = {
 Blockly.Blocks.motion_MoonRover = {
   init: function() {
     var mrMotion = 
-        [[Blockly.yaw, '1'],
-        [Blockly.pitch, '2'],
-        [Blockly.roll, '3']];
+        [[Blockly.yaw, '0'],
+        [Blockly.pitch, '1'],
+        [Blockly.roll, '2']];
 
     this.setColour(col_teleGet);
 
