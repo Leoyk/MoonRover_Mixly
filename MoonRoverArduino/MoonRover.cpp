@@ -139,7 +139,7 @@ static int thread1_entry(struct pt *pt){//手动控制任务
 	  __MoonRoverGetTelecomm();
 
     }
-  PT_TIMER_DELAY(pt,20); __MoonRoverGetConmmunication(); 
+  PT_TIMER_DELAY(pt,100); __MoonRoverGetConmmunication(); 
   }
   PT_END(pt);
 }
@@ -217,7 +217,7 @@ void __MoonRoverGetTelecomm(void){
   if(__camFlag != 1){
       __MoonRoverGetData();
     
-      if(millis() - __timeFlagTele > 50){//发送遥测数据时间间隔     
+      if(millis() - __timeFlagTele > 130){//发送遥测数据时间间隔     
         __timeFlagTele = millis();        
 
         if(__motorFlag){//输出电机位置信息
