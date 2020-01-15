@@ -217,7 +217,7 @@ void __MoonRoverGetTelecomm(void){
   if(__camFlag != 1){
       __MoonRoverGetData();
     
-      if(millis() - __timeFlagTele > 130){//发送遥测数据时间间隔     
+      if(millis() - __timeFlagTele > 150){//发送遥测数据时间间隔     
         __timeFlagTele = millis();        
 
         if(__motorFlag){//输出电机位置信息
