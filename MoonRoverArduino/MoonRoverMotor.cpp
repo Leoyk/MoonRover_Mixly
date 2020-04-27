@@ -24,13 +24,13 @@ float arr = 0.8;//比例
             spd = 0;
         }
         else{
-            spd = (_Yval / abs(_Yval)) * map(abs(_Yval),0,126,0,100);            
+            spd = (_Yval / abs(_Yval)) * map(abs(_Yval),0,126,0,50);            
         }
 
       
         if(abs(_Xval) > 80){//原地转向
             ang = 45;
-            spd = (_Xval/abs(_Xval)) * map(abs(_Xval),80,126,0,80);
+            spd = (_Xval/abs(_Xval)) * map(abs(_Xval),80,126,0,40);
            
             wheelAngel_1 = ang;
             wheelAngel_2 = -ang;
